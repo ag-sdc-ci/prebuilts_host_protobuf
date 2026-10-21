@@ -1,0 +1,6 @@
+shadow prebuilt repo: protobuf (host)
+  upstream: external/protobuf
+  arch package: protobuf-21 v21.12-6, chaotic-aur / Arch Linux
+  api-level: universal / 34 (Protobuf v21 / 3.21.12 host code generator & runtime)
+  layout: protobuf-21-*.pkg.tar.zst at root; bin/ (protoc, aprotoc); lib64/ (libprotoc.so, libprotobuf.so, libprotobuf-lite.so); include/ (google/protobuf/*.h, *.proto); Android.bp providing aprotoc, protoc, libprotoc, filegroups
+  date: 2026-10-21

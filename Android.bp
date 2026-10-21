@@ -1,0 +1,73 @@
+package {
+    default_applicable_licenses: ["external_protobuf_license"],
+}
+
+license {
+    name: "external_protobuf_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-BSD-3-Clause",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+cc_prebuilt_binary {
+    name: "aprotoc",
+    host_supported: true,
+    device_supported: false,
+    check_elf_files: false,
+    prefer: true,
+    srcs: ["bin/protoc"],
+}
+
+cc_prebuilt_binary {
+    name: "protoc",
+    host_supported: true,
+    device_supported: false,
+    check_elf_files: false,
+    prefer: true,
+    srcs: ["bin/protoc"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libprotoc",
+    host_supported: true,
+    device_supported: false,
+    check_elf_files: false,
+    export_include_dirs: [
+        "include",
+    ],
+    prefer: true,
+    srcs: ["lib64/libprotoc.so"],
+}
+
+filegroup {
+    name: "libprotobuf-internal-protos",
+    srcs: [
+        "include/google/protobuf/descriptor.proto",
+        "include/google/protobuf/any.proto",
+        "include/google/protobuf/source_context.proto",
+        "include/google/protobuf/type.proto",
+        "include/google/protobuf/compiler/plugin.proto",
+        "include/google/protobuf/api.proto",
+        "include/google/protobuf/duration.proto",
+        "include/google/protobuf/empty.proto",
+        "include/google/protobuf/field_mask.proto",
+        "include/google/protobuf/struct.proto",
+        "include/google/protobuf/timestamp.proto",
+        "include/google/protobuf/wrappers.proto",
+    ],
+    path: "include",
+    visibility: ["//visibility:public"],
+}
+
+filegroup {
+    name: "libprotobuf-internal-descriptor-proto",
+    srcs: [
+        "include/google/protobuf/descriptor.proto",
+    ],
+    path: "include",
+    visibility: ["//visibility:public"],
+}
